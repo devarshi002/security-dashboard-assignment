@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/dashboard"); // redirect after create account
+  };
+
   return (
     <div className="relative min-h-screen bg-[#0B0F14] text-white overflow-hidden">
 
@@ -14,11 +21,10 @@ export default function Login() {
       </div>
 
       <div className="relative max-w-7xl mx-auto min-h-screen flex items-center px-8">
-
         <div className="grid lg:grid-cols-2 gap-20 w-full items-center">
 
           {/* LEFT SECTION */}
-          <div className="space-y-8">
+          <div className="space-y-8 hidden lg:block">
 
             <h1 className="text-5xl font-bold leading-tight">
               Expert level Cybersecurity
@@ -26,32 +32,25 @@ export default function Login() {
               in <span className="text-teal-400">hours</span> not weeks.
             </h1>
 
-            <div>
-              <p className="text-gray-400 mb-4">What's included</p>
+            <p className="text-gray-400">What's included</p>
 
-              <ul className="space-y-4 text-gray-300">
-                <li className="flex gap-3">
-                  <span className="text-teal-400">✔</span>
-                  Effortlessly spider and map targets to uncover hidden security flaws
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-teal-400">✔</span>
-                  Deliver high-quality, validated findings in hours, not weeks.
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-teal-400">✔</span>
-                  Generate professional, enterprise-grade security reports automatically.
-                </li>
-              </ul>
-            </div>
+            <ul className="space-y-4 text-gray-300">
+              <li className="flex gap-3">
+                <span className="text-teal-400">✔</span>
+                Effortlessly spider and map targets
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-400">✔</span>
+                Deliver validated findings quickly
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-400">✔</span>
+                Generate enterprise-grade reports
+              </li>
+            </ul>
 
             <div className="pt-6 text-gray-400">
-              <div className="flex items-center gap-2 text-teal-400">
-                ★ Trustpilot
-              </div>
-              <p className="mt-2 text-white">
-                Rated 4.5/5.0 <span className="text-gray-500">(100k+ reviews)</span>
-              </p>
+              ⭐ Rated 4.5/5.0 (100k+ reviews)
             </div>
           </div>
 
@@ -60,14 +59,7 @@ export default function Login() {
 
             <h2 className="text-2xl font-semibold text-center">Sign up</h2>
 
-            <p className="text-center text-sm text-gray-500 mt-2">
-              Already have an account?{" "}
-              <Link to="/" className="text-teal-600 hover:underline">
-                Log in
-              </Link>
-            </p>
-
-            <form className="mt-6 space-y-4">
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
 
               <input
                 type="text"
@@ -96,30 +88,26 @@ export default function Login() {
               <div className="flex items-start gap-2 text-sm text-gray-600">
                 <input type="checkbox" className="mt-1" />
                 <span>
-                  I agree to Aps’s{" "}
-                  <span className="text-teal-600 underline">Terms & Conditions</span>{" "}
-                  and acknowledge the{" "}
-                  <span className="text-teal-600 underline">Privacy Policy</span>
+                  I agree to Terms & Conditions and Privacy Policy
                 </span>
               </div>
 
               <button
-                type="button"
+                type="submit"
                 className="w-full bg-teal-500 hover:bg-teal-600 text-white py-3 rounded-full font-semibold transition"
               >
                 Create account
               </button>
             </form>
 
-            {/* Social Buttons */}
             <div className="flex gap-3 mt-6">
-              <button className="flex-1 bg-black text-white py-2 rounded-full cursor-pointer">
+              <button className="flex-1 bg-black text-white py-2 rounded-full">
                 
               </button>
-              <button className="flex-1 bg-gray-100 py-2 rounded-full cursor-pointer">
+              <button className="flex-1 bg-gray-100 py-2 rounded-full">
                 G
               </button>
-              <button className="flex-1 bg-blue-600 text-white py-2 rounded-full cursor-pointer">
+              <button className="flex-1 bg-blue-600 text-white py-2 rounded-full">
                 ∞
               </button>
             </div>

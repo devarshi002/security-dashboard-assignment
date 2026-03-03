@@ -1,11 +1,10 @@
-import { useParams, useEffect } from "react-router-dom";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Layout from "../components/layout/Layout";
 
 export default function ScanDetail() {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("activity");
-
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -15,16 +14,20 @@ export default function ScanDetail() {
 
     return () => clearTimeout(timer);
   }, []);
+
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
 
   return (
     <Layout>
-      <h2 className="text-2xl font-semibold mb-8">Scan Detail — ID {id}</h2>
+      <h2 className="text-2xl font-semibold mb-8">
+        Scan Detail — ID {id}
+      </h2>
 
       {/* Top Section */}
       <div className="bg-gray-100 dark:bg-[#1A1A1A] rounded-2xl p-6 border border-gray-200 dark:border-gray-800 mb-8">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
+
           {/* Circular Progress */}
           <div className="flex flex-col items-center">
             <div className="relative w-24 h-24">
@@ -81,12 +84,12 @@ export default function ScanDetail() {
                     {step}
                   </span>
                 </div>
-              ),
+              )
             )}
           </div>
         </div>
 
-        {/* Responsive Metadata */}
+        {/* Metadata */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-8 text-sm">
           <div>
             <p className="text-gray-500">Scan Type</p>
@@ -115,8 +118,9 @@ export default function ScanDetail() {
         </div>
       </div>
 
-      {/* Bottom Section Responsive */}
+      {/* Bottom Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
         {/* Live Console */}
         <div className="bg-gray-100 dark:bg-[#1A1A1A] rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
           <h3 className="font-semibold mb-4">Live Scan Console</h3>
@@ -177,7 +181,9 @@ export default function ScanDetail() {
               <p className="font-semibold mt-1">
                 SQL Injection in Authentication Endpoint
               </p>
-              <p className="text-sm text-gray-500 mt-1">/api/users/profile</p>
+              <p className="text-sm text-gray-500 mt-1">
+                /api/users/profile
+              </p>
             </div>
 
             <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
@@ -187,7 +193,9 @@ export default function ScanDetail() {
               <p className="font-semibold mt-1">
                 Unauthorized Access to User Metadata
               </p>
-              <p className="text-sm text-gray-500 mt-1">/api/auth/login</p>
+              <p className="text-sm text-gray-500 mt-1">
+                /api/auth/login
+              </p>
             </div>
           </div>
         </div>
