@@ -57,7 +57,7 @@ export default function Login() {
           {/* RIGHT CARD */}
           <div className="bg-white rounded-2xl shadow-2xl p-10 text-black max-w-md ml-auto">
 
-            <h2 className="text-2xl font-semibold text-center">Sign up</h2>
+            <h2 className="text-2xl font-semibold text-center">Login</h2>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
 
@@ -96,7 +96,7 @@ export default function Login() {
                 type="submit"
                 className="w-full bg-teal-500 hover:bg-teal-600 text-white py-3 rounded-full font-semibold transition"
               >
-                Create account
+                Click to Login
               </button>
             </form>
 
